@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import { useQuery } from "react-query";
+import { getMovies } from "../api";
 
 function Home() {
-  return (
-    <div>Home</div>
-  )
+  const { data, isLoading } = useQuery(["movies", "nowPlaying"], getMovies);
+  console.log(data, isLoading);
+  return <div>Home</div>;
 }
 
-export default Home
+export default Home;
